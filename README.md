@@ -16,3 +16,6 @@ Default tasks are defined in the gulpfile and are initially set up to run as fol
 1. `gulp` for development tasks. Compiles SASS and JS, runs a linter over the JS, kicks off a browserSync instance and watches for changes.
 1. `gulp --prod` for production tasks. Compiles and minifies SCSS and JS and moves images to S3.
 1. On initial installation `gulp install` can be run a one-off compilation of all the files to create the initial file structure and install any bower dependencies.
+
+## Tasks
+Navigate the tasks gulp/tasks folder to see all the different tasks currently catered for. Descriptions for each are commented inline.
