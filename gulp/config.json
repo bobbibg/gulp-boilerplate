@@ -1,0 +1,45 @@
+{
+    "options"            : {
+        "dev"            : {
+            "debug"      :   true,
+            "minify"     :   false,
+            "sourcemap"  :   true
+        },
+        "prod"           : {
+            "debug"      :   false,
+            "minify"     :   true,
+            "sourcemap"  :   false
+        }
+    },
+    "paths"              : {
+        "tasks"          : {
+            "src"        : "./gulp/tasks/"
+        },
+        "images"         : {
+            "src"        :   "./assets/images/",
+            "dest"       :   "./public/images/"
+        },
+        "icons"         : {
+            "src"        :   "./assets/icons/",
+            "dest"       :   "./public/icons/"
+        },
+        "scripts"        : {
+            "src"        :   "./assets/js/",
+            "dest"       :   "./public/js/"
+        },
+        "styles"         : {
+            "src"        :   "./assets/scss/",
+            "dest"       :   "./public/css/"
+        },
+        "fonts"          : {
+            "src"        :   "./assets/fonts/",
+            "dest"        :   "./public/fonts/"
+        }
+    },
+    "aws"                : {
+      "key"              : "",
+      "secret"           : "",
+      "bucket"           : "",
+      "region"           : ""
+    }
+}
