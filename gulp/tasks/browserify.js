@@ -2,7 +2,7 @@
 /**
  * Scripts
  * Used as part of default 'gulp' task, the gulp task with the --prod flag enabled as well as during 'gulp install'.
- * To use on it's own run 'gulp scripts'.
+ * To use on it's own run 'gulp browserify'.
  * Uses browserify (http://browserify.org/) to bundle javascript modules and optionally builds sourcemap / minifies dependent on environment config.
  * Also copies across any library dependencies from assets/js/lib
  */

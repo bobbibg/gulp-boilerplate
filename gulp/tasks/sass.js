@@ -2,7 +2,7 @@
 /**
  * Styles
  * Used as part of default 'gulp' task, the gulp task with the --prod flag enabled as well as during 'gulp install'.
- * To use on it's own run 'gulp styles'.
+ * To use on it's own run 'gulp sass'.
  * Compiles sass files using libsass and optionally builds sourcemap / minifies dependent on environment config.
  */
 
