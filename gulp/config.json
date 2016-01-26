@@ -31,6 +31,10 @@
             "src"        :   "./assets/scss/",
             "dest"       :   "./public/css/"
         },
+        "views"         : {
+            "src"        :   "./src/views/",
+            "dest"       :   "./public/"
+        },
         "fonts"          : {
             "src"        :   "./assets/fonts/",
             "dest"        :   "./public/fonts/"
