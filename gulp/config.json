@@ -28,6 +28,7 @@
             "dest"       :   "./public/js/"
         },
         "styles"         : {
+            "entry"      :   "scripts.js",
             "src"        :   "./assets/scss/",
             "dest"       :   "./public/css/"
         },

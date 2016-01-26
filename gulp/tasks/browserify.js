@@ -7,10 +7,7 @@
  * Also copies across any library dependencies from assets/js/lib
  */
 
-var del             = require('del'),
-    browserify      = require('browserify'),
-    source          = require('vinyl-source-stream'),
-    buffer          = require('vinyl-buffer');
+var del             = require('del');
 
 module.exports = function (gulp, plugins, options, path, aws) {
     return function () {
@@ -18,47 +15,27 @@ module.exports = function (gulp, plugins, options, path, aws) {
         // clean destination
         del([path.scripts.dest]);
 
-        // add details of bundles
-        var srcArray = [
-            {   dev: path.scripts.src, 
-                scriptName: "scripts",
-                dest: path.scripts.dest
-            }
-        ];   
-
-        // loops through scripts and bundles
-        for(var i = 0; i < srcArray.length; ++i) {
-
-            var src = srcArray[i].dev + srcArray[i].scriptName + '.js';
-
-            var b = browserify({entries:src, debug: options.debug})
-            
-            b.bundle()
-
-            .on('error', function(err){
-                new plugins.util.PluginError('Browserify', err, {showStack: true});
+        gulp.src( path.scripts.src + path.scripts.entry )
+        .pipe(
+            plugins.browserify({
+              debug : options.debug
             })
-            .pipe(
-                source(srcArray[i].scriptName)
-            )
-            .pipe(
-                plugins.if( options.minify, buffer() )
-            )
-            .pipe(
-                plugins.if( options.minify, plugins.stripDebug() )
-            )
-            .pipe(
-                plugins.if( options.minify, plugins.uglify() )
-            )
-            .pipe(
-                plugins.rename({ extname: '.bundle.js' })
-            )
-            .pipe(
-                gulp.dest( srcArray[i].dest )
-            )
-            .pipe(
-                plugins.browserSync.stream()
-            );
-        };
+        )
+        .pipe(
+            plugins.if( options.minify, plugins.stripDebug() )
+        )
+        .pipe(
+            plugins.if( options.minify, plugins.uglify() )
+        )
+        .pipe(
+            plugins.rename({ extname: '.bundle.js' })
+        )
+        .pipe(
+            gulp.dest( path.scripts.dest )
+        )
+        .pipe(
+            plugins.browserSync.stream()
+        );
+
     };
 };

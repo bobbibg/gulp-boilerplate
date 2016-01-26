@@ -26,13 +26,19 @@ module.exports = function (gulp, plugins, options, path, aws) {
 	    });
 
 	    // styles
-	    gulp.watch(path.styles.src     + '**/*.scss', ['styles']).on('change', function(evt) {
+	    gulp.watch(path.styles.src     + '**/*.scss', ['sass']).on('change', function(evt) {
 	        changeEvent(evt, path.styles.src);
 	    });
 
 		// scripts
-	    gulp.watch(path.scripts.src    + '**/*.js', ['jshint', 'scripts']).on('change', function(evt) {
+	    gulp.watch(path.scripts.src    + '**/*.js', ['jshint', 'browserify']).on('change', function(evt) {
 	        changeEvent(evt, path.scripts.src);
+	    });
+	    
+		// liquid templates
+	    gulp.watch(path.views.src    + '**/*.liquid', ['liquid']).on('change', function(evt) {
+	    	plugins.browserSync.reload();
+	        changeEvent(evt, path.views.src);
 	    });
 	};
 };
