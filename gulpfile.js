@@ -49,10 +49,9 @@ glob.sync( path.tasks.src + '**/*.js'  ).forEach( function (file) {
 if (plugins.util.env.prod === true)
     gulp.task('default', ['fonts', 'images', 'icons', 'sass', 'browserify', 's3']);
 else
-    gulp.task('default', ['sass', 'jshint', 'browserify', 'watch', 'browsersync']);
+    gulp.task('default', ['server', 'sass', 'jshint', 'browserify', 'watch', 'browsersync']);
 
 /** 
  * Install task for initial set up. Installs any bower dependencies, builds public asset folder 
 */
 gulp.task('install', ['bower', 'sass', 'browserify', 'fonts', 'images', 'icons']);
-
